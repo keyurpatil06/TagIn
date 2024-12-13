@@ -21,9 +21,9 @@ const HeroSection = () => {
           {/* Core component */}
           <SparklesCore
             background="transparent"
-            minSize={0.3} // smaller on mobile
-            maxSize={0.8} // smaller on mobile
-            particleDensity={600} // less dense on mobile
+            minSize={0.3}
+            maxSize={0.8}
+            particleDensity={1000}
             className="w-full h-full"
             particleColor="#FFFFFF"
           />

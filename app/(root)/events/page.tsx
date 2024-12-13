@@ -1,11 +1,31 @@
-import React from 'react'
+import EventCard from '@/components/EventCard';
+import Navbar from '@/components/Navbar';
+import { getEventsList } from '@/lib/actions/event.actions'
 
-const EventsPage = () => {
+const EventsPage = async () => {
+  const events = await getEventsList();
+
   return (
-    <div>
-      Events page
+    <div className='md:pt-16'>
+      <Navbar />
+      <div className="p-6 bg-slate-950">
+        <h1 className="text-4xl font-bold text-white mt-4 mb-8 text-center">Ongoing Events</h1>
+        <div className="flex gap-10 flex-wrap justify-center">
+          {events.map(({ id, title, date, city, description, imgURL }) => (
+            <EventCard
+              key={id}
+              id={id}
+              title={title}
+              date={date}
+              city={city}
+              description={description}
+              imgURL={imgURL}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
 
-export default EventsPage
+export default EventsPage;
