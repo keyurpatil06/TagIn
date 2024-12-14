@@ -7,7 +7,7 @@ export const createEvent = async () => {
 }
 
 export const getEvent = async (id: string) => {
-    const event = eventsList.find((event) => event.id === id)
+    const event = eventsList.find((event) => event.$id === id)
     return event;
 }
 

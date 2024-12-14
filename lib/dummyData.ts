@@ -1,82 +1,152 @@
-export const eventsList = [
+export const eventsList: EventDetails[] = [
   {
-    id: "1",
+    $id: "1",
     title: "Music Fest 2024",
     date: "2024-12-25",
     city: 'Mumbai',
     description: "Join us for a day filled with live music, food stalls, and fun activities.",
-    imgURL: '/ticket.jpg'
+    imgURL: '/ticket.jpg',
+    organizedBy: "Music Corp",
+    location: "Gateway of India, Mumbai",
+    time: "12:00 PM - 9:00 PM",
+    price: 500, // Price in currency units
+    tags: ["Music", "Festival", "Outdoor"],
+    performers: ["Band A", "DJ X", "Vocalist Y"],
+    attendeesCount: 1500,
   },
   {
-    id: "2",
+    $id: "2",
     title: "Tech Innovators Conference",
     date: "2025-01-15",
     city: 'Mumbai',
     description: "Explore the latest in tech trends and innovations with industry leaders.",
-    imgURL: '/ticket.jpg'
+    imgURL: '/ticket.jpg',
+    organizedBy: "Tech Innovators Group",
+    location: "Mumbai Convention Center",
+    time: "9:00 AM - 5:00 PM",
+    price: 2000, // Ticket price
+    tags: ["Technology", "Conference", "Innovation"],
+    performers: ["Speaker 1", "Speaker 2", "Keynote Speaker"],
+    attendeesCount: 800,
   },
   {
-    id: "3",
+    $id: "3",
     title: "Art & Craft Expo",
     date: "2025-02-10",
     city: 'Mumbai',
     description: "Discover unique handmade items and support local artists at our craft expo.",
-    imgURL: '/ticket.jpg'
+    imgURL: '/ticket.jpg',
+    organizedBy: "Artisans Collective",
+    location: "Bandra Exhibition Hall, Mumbai",
+    time: "10:00 AM - 6:00 PM",
+    price: 200, // Price for entry
+    tags: ["Art", "Craft", "Expo"],
+    performers: [],
+    attendeesCount: 500,
   },
   {
-    id: "4",
+    $id: "4",
     title: "Foodies Delight Festival",
     date: "2025-03-05",
     city: 'Mumbai',
     description: "Savor a variety of cuisines from top chefs and street vendors.",
-    imgURL: '/ticket.jpg'
+    imgURL: '/ticket.jpg',
+    organizedBy: "Foodies United",
+    location: "Juhu Beach, Mumbai",
+    time: "11:00 AM - 9:00 PM",
+    price: 300, // Price for entry
+    tags: ["Food", "Festival", "Culinary"],
+    performers: [],
+    attendeesCount: 1200,
   },
   {
-    id: "5",
+    $id: "5",
     title: "Outdoor Adventure Meetup",
     date: "2025-04-20",
     city: 'Mumbai',
     description: "Experience the thrill of hiking, camping, and outdoor survival workshops.",
-    imgURL: '/ticket.jpg'
+    imgURL: '/ticket.jpg',
+    organizedBy: "Adventure Seekers Group",
+    location: "Sahyadri Hills, Maharashtra",
+    time: "7:00 AM - 6:00 PM",
+    price: 1500, // Price for event participation
+    tags: ["Outdoor", "Adventure", "Hiking"],
+    performers: [],
+    attendeesCount: 250,
   },
   {
-    id: "6",
+    $id: "6",
     title: "Comedy Night Live",
     date: "2025-05-10",
     city: 'Mumbai',
     description: "Laugh your heart out with performances by renowned comedians.",
-    imgURL: '/ticket.jpg'
+    imgURL: '/ticket.jpg',
+    organizedBy: "Laugh Riot Productions",
+    location: "The Comedy Club, Mumbai",
+    time: "8:00 PM - 10:00 PM",
+    price: 600, // Ticket price
+    tags: ["Comedy", "Entertainment", "Live"],
+    performers: ["Comedian A", "Comedian B", "Comedian C"],
+    attendeesCount: 300,
   },
   {
-    id: "7",
+    $id: "7",
     title: "Film Screening Marathon",
     date: "2025-06-15",
     city: 'Mumbai',
     description: "Catch exclusive screenings of award-winning movies and indie films.",
-    imgURL: '/ticket.jpg'
+    imgURL: '/ticket.jpg',
+    organizedBy: "Film Buffs Society",
+    location: "PVR Cinemas, Mumbai",
+    time: "12:00 PM - 10:00 PM",
+    price: 800, // Price for the full day pass
+    tags: ["Film", "Cinema", "Screening"],
+    performers: [],
+    attendeesCount: 500,
   },
   {
-    id: "8",
+    $id: "8",
     title: "Health & Wellness Retreat",
     date: "2025-07-22",
     city: 'Mumbai',
     description: "Rejuvenate your mind and body with yoga, meditation, and wellness workshops.",
-    imgURL: '/ticket.jpg'
+    imgURL: '/ticket.jpg',
+    organizedBy: "Wellness Retreats India",
+    location: "Anand Valley Resort, Mumbai",
+    time: "7:00 AM - 5:00 PM",
+    price: 3500, // Price for participation
+    tags: ["Health", "Wellness", "Yoga", "Meditation"],
+    performers: ["Yoga Instructor", "Meditation Guide"],
+    attendeesCount: 200,
   },
   {
-    id: "9",
+    $id: "9",
     title: "Book Lovers Meetup",
     date: "2025-08-05",
     city: 'Mumbai',
     description: "Discuss your favorite reads and meet bestselling authors.",
-    imgURL: '/ticket.jpg'
+    imgURL: '/ticket.jpg',
+    organizedBy: "Book Club Mumbai",
+    location: "Literature Lounge, Mumbai",
+    time: "4:00 PM - 7:00 PM",
+    price: 100, // Free or low entry fee
+    tags: ["Books", "Literature", "Meetup"],
+    performers: ["Author A", "Author B"],
+    attendeesCount: 150,
   },
   {
-    id: "10",
+    $id: "10",
     title: "Gaming Tournament",
     date: "2025-09-10",
     city: 'Mumbai',
     description: "Compete with top players and win exciting prizes in a variety of games.",
-    imgURL: '/ticket.jpg'
+    imgURL: '/ticket.jpg',
+    organizedBy: "Game Masters",
+    location: "Cyber Arena, Mumbai",
+    time: "10:00 AM - 6:00 PM",
+    price: 1000, // Price to participate in the tournament
+    tags: ["Gaming", "Tournament", "eSports"],
+    performers: ["Top Gamer 1", "Top Gamer 2", "Top Gamer 3"],
+    attendeesCount: 600,
   },
 ];

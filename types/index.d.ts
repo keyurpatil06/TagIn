@@ -5,11 +5,30 @@ declare type SearchParamProps = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-declare type EventCardProps = {
-  id: string;
+declare type User = {
+  $id: string;
+  email: string;
+  userId: string;
+  firstName: string;
+  lastName: string;
+  name: string,
+  city: string;
+  state: string;
+  dateOfBirth: string;
+};
+
+declare type EventDetails = {
+  $id: string;
   title: string;
   date: string;
-  city:string;
+  city: string;
   description: string;
   imgURL: string;
+  organizedBy?: string;
+  location?: string;
+  time?: string;
+  price?: number;
+  tags?: string[];
+  performers?: string[];
+  attendeesCount?: number;
 };
