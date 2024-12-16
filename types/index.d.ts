@@ -5,6 +5,21 @@ declare type SearchParamProps = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
+declare type SignUpParams = {
+  firstName: string;
+  lastName: string;
+  city: string;
+  state: string;
+  dateOfBirth: string;
+  email: string;
+  password: string;
+};
+
+declare type LoginUser = {
+  email: string;
+  password: string;
+};
+
 declare type User = {
   $id: string;
   email: string;

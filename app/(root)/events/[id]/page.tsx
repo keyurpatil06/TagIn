@@ -1,6 +1,8 @@
 import EventDetails from '@/components/EventDetails'
 import Navbar from '@/components/Navbar'
 import { getEvent } from '@/lib/actions/event.actions'
+import { getLoggedInUser } from '@/lib/actions/user.actions';
+import { redirect } from 'next/navigation';
 import React from 'react'
 
 type Props = {
@@ -10,7 +12,9 @@ type Props = {
 const IndividualEvent = async ({ params }: Props) => {
   const { id } = params;
   const event = await getEvent(id);
-  const userId = 'userid'; // TO BE DONE
+  const loggedIn = await getLoggedInUser();
+
+    if (!loggedIn) redirect('/sign-in');
 
   if (!event) {
     return <div>Event not found.</div>;
@@ -20,7 +24,7 @@ const IndividualEvent = async ({ params }: Props) => {
     <div className=' bg-slate-950 text-white'>
       <Navbar />
       <div className='md:pt-16 min-h-screen pt-28 px-6 flex items-center justify-center'>
-        <EventDetails event={event} userId={userId}/>
+        <EventDetails event={event} userId={loggedIn.$id}/>
       </div>
     </div>
   );

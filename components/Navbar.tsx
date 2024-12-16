@@ -1,8 +1,19 @@
-import React from 'react';
+'use client'
+
 import Link from 'next/link';
 import { navLinks } from '@/constants';
+import Button from './Button';
+import { useRouter } from 'next/navigation';
+import { logoutAccount } from '@/lib/actions/user.actions';
 
 const Navbar = () => {
+  const router = useRouter();
+
+  const handleLogOut = async () => {
+    const loggedOut = await logoutAccount();
+    if (loggedOut) router.push('/sign-in');
+  }
+
   return (
     <nav className="bg-black text-white p-4 shadow-md absolute w-full top-0 border-b-[1px] border-slate-800">
       <div className="max-w-7xl mx-auto flex md:flex-row flex-col justify-between items-center">
@@ -22,6 +33,10 @@ const Navbar = () => {
               {label}
             </Link>
           ))}
+          <Button
+            text='Log Out'
+            onClick={handleLogOut}
+          />
         </div>
       </div>
     </nav>
