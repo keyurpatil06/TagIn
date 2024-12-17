@@ -14,7 +14,7 @@ const IndividualEvent = async ({ params }: Props) => {
   const event = await getEvent(id);
   const loggedIn = await getLoggedInUser();
 
-    if (!loggedIn) redirect('/sign-in');
+  if (!loggedIn) redirect('/sign-in');
 
   if (!event) {
     return <div>Event not found.</div>;
@@ -24,7 +24,7 @@ const IndividualEvent = async ({ params }: Props) => {
     <div className=' bg-slate-950 text-white'>
       <Navbar />
       <div className='md:pt-16 min-h-screen pt-28 px-6 flex items-center justify-center'>
-        <EventDetails event={event} userId={loggedIn.$id}/>
+        <EventDetails event={event} userId={loggedIn.$id} />
       </div>
     </div>
   );

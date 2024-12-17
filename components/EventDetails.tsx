@@ -34,7 +34,7 @@ const EventDetails = ({ event, userId }: { event: EventDetails, userId: string }
   }
 
   return (
-    <div className='w-fit md:flex gap-10 items-center justify-center bg-slate-800 shadow-lg rounded-2xl p-4 md:p-8'>
+    <div className='w-fit md:flex gap-10 items-center justify-center bg-slate-800 shadow-lg rounded-2xl max-md:mb-12 p-4 md:p-8'>
       <div className='flex justify-center w-full max-md:mt-6 p-2 md:p-4 rounded-xl items-center bg-slate-700'>
         <Image
           src={imgURL}
@@ -94,7 +94,8 @@ const EventDetails = ({ event, userId }: { event: EventDetails, userId: string }
 
         {attendeesCount && (
           <p className='text-gray-300'>
-            <strong>Attendees:</strong> {attendeesCount} expected
+            <span className='font-bold'>Attendees:</span> {attendeesCount}
+            {/* TODO: ADD REAL COUNT */}
           </p>
         )}
 

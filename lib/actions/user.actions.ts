@@ -82,7 +82,7 @@ export const getUserInfo = async ({ userId }: { userId: string }) => {
         [Query.equal('userId', [userId])]
     )
 
-    return parseStringify(user);
+    return parseStringify(user.documents[0]);
 }
 
 export const getLoggedInUser = async () => {

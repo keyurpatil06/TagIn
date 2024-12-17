@@ -18,6 +18,22 @@ body {
   .flex-center {
     @apply flex items-center justify-center;
   }
+
+  .form-item {
+    @apply flex flex-col gap-1.5 w-full;
+  }
+
+  .form-label {
+    @apply text-[14px] leading-[20px] w-full max-w-[280px] font-medium text-gray-700;
+  }
+
+  .form-message {
+    @apply text-[12px] leading-[16px] text-red-500;
+  }
+
+  .input-class {
+    @apply text-lg placeholder:text-[16px] placeholder:leading-[24px] rounded-lg;
+  }
 }
 
 @layer base {
