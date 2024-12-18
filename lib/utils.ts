@@ -8,6 +8,8 @@ export function cn(...inputs: ClassValue[]) {
 
 export const parseStringify = (value: any) => JSON.parse(JSON.stringify(value));
 
+export const convertFileToUrl = (file: File) => URL.createObjectURL(file);
+
 export const authFormSchema = (type: string) => z.object({
   // sign-up
   firstName: type === 'sign-in' ? z.string().optional() : z.string().min(3),
@@ -22,15 +24,15 @@ export const authFormSchema = (type: string) => z.object({
 
 export const newEventFormSchema = () => z.object({
   title: z.string().min(3),
+  email: z.string().min(3),
   date: z.string().min(3),
   city: z.string().min(3),
   description: z.string().min(3),
-  imgURL: z.string().optional(),
-  organizedBy: z.array(z.string()).min(1),
+  bannerImage: z.custom<File[]>(),
+  organizedBy: z.string().min(1),
   location: z.string().min(3),
   time: z.string(),
-  price: z.string().optional(),
-  tags: z.array(z.string()).optional(),
-  performers: z.array(z.string()).min(1),
-  attendeesCount: z.string().optional(),
+  price: z.string().regex(/^\d+$/, 'Must be a valid number').transform((value) => parseFloat(value)),
+  tags: z.string(),
+  performers: z.string().min(3),
 });

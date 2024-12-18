@@ -16,7 +16,7 @@ const EventsPage = async () => {
       <div className="flex-center flex-col p-6 bg-slate-950">
         <h1 className="text-4xl font-bold text-white max-md:mt-8 mt-4 mb-8 text-center">Ongoing Events</h1>
         <div className="flex gap-10 flex-wrap justify-center md:max-w-7xl">
-          {events.map(({ $id, title, date, city, description, imgURL }) => (
+          {events.map(({ $id, title, date, city, description, bannerImage }) => (
             <EventCard
               key={$id}
               $id={$id}
@@ -24,7 +24,7 @@ const EventsPage = async () => {
               date={date}
               city={city}
               description={description}
-              imgURL={imgURL}
+              bannerImage={bannerImage}
             />
           ))}
         </div>

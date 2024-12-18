@@ -9,9 +9,9 @@ import { useState } from "react";
 import { signIn, signUp } from "@/lib/actions/user.actions";
 import { useRouter } from "next/navigation";
 import { Form } from "./ui/form";
-import CustomInput from "./CustomInput";
 import { Button } from "./ui/button";
 import { Loader2 } from 'lucide-react';
+import AuthCustomInput from "./AuthCustomInput";
 
 const AuthForm = ({ type }: { type: string }) => {
   const formSchema = authFormSchema(type);
@@ -91,13 +91,13 @@ const AuthForm = ({ type }: { type: string }) => {
             {type === 'sign-up' && (
               <>
                 <div className="flex gap-4">
-                  <CustomInput
+                  <AuthCustomInput
                     control={form.control}
                     name='firstName'
                     label='First Name'
                     placeholder='Enter your first name'
                   />
-                  <CustomInput
+                  <AuthCustomInput
                     control={form.control}
                     name='lastName'
                     label='Last Name'
@@ -105,20 +105,20 @@ const AuthForm = ({ type }: { type: string }) => {
                   />
                 </div>
                 <div className="flex gap-4">
-                  <CustomInput
+                  <AuthCustomInput
                     control={form.control}
                     name='city'
                     label='City'
                     placeholder='Enter your city'
                   />
-                  <CustomInput
+                  <AuthCustomInput
                     control={form.control}
                     name='state'
                     label='State'
                     placeholder='Ex: NY'
                   />
                 </div>
-                <CustomInput
+                <AuthCustomInput
                   control={form.control}
                   name='dateOfBirth'
                   label='Date of Birth'
@@ -127,13 +127,13 @@ const AuthForm = ({ type }: { type: string }) => {
               </>
             )}
 
-            <CustomInput
+            <AuthCustomInput
               control={form.control}
               name='email'
               label='Email'
               placeholder='Enter your email'
             />
-            <CustomInput
+            <AuthCustomInput
               control={form.control}
               name='password'
               label='Password'

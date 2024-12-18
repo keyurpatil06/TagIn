@@ -2,12 +2,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const EventCard = ({ $id, title, date, city, description, imgURL }: EventDetails) => {
+const EventCard = ({ $id, title, date, city, description, bannerImage }: EventDetails) => {
 
   return (
     <div className="bg-slate-900 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform w-96 flex flex-col">
       <Image
-        src={imgURL}
+        src={bannerImage}
         alt={title}
         height={500}
         width={500}

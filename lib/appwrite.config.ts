@@ -9,7 +9,7 @@ const {
     DATABASE_ID,
     EVENT_COLLECTION_ID,
     USER_COLLECTION_ID,
-    // NEXT_PUBLIC_BUCKET_ID: BUCKET_ID,
+    NEXT_PUBLIC_BUCKET_ID: BUCKET_ID,
     NEXT_PUBLIC_ENDPOINT: ENDPOINT,
 } = process.env;
 
@@ -48,6 +48,9 @@ export async function createAdminClient() {
         },
         get user() {
             return new Users(client);
+        },
+        get storage(){
+            return new Storage(client);
         }
     };
 }

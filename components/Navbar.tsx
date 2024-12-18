@@ -2,10 +2,10 @@
 
 import Link from 'next/link';
 import { navLinks } from '@/constants';
-import Button from './Button';
 import { useRouter } from 'next/navigation';
 import { logoutAccount } from '@/lib/actions/user.actions';
 import { SquarePlus } from 'lucide-react';
+import CustomButton from './Button';
 
 const Navbar = () => {
   const router = useRouter();
@@ -38,7 +38,7 @@ const Navbar = () => {
             <SquarePlus />
             New Event
           </Link>
-          <Button
+          <CustomButton
             text='Log Out'
             className='bg-red-600 hover:bg-red-500 rounded-xl'
             onClick={handleLogOut}

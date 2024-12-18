@@ -3,8 +3,8 @@
 import React from 'react';
 import DiscoverCard from './DiscoverCard';
 import { discoverCards } from '@/constants';
-import Button from './Button';
 import Link from 'next/link';
+import CustomButton from './Button';
 
 const Discover = () => {
   return (
@@ -25,7 +25,7 @@ const Discover = () => {
         </div>
 
         <Link href='/events'>
-          <Button text='See What&apos;s Happening!' className='bg-slate-900 font-medium text-lg px-6 py-3 hover:bg-slate-800 tracking-wide mt-16' />
+          <CustomButton text='See What&apos;s Happening!' className='bg-slate-900 font-medium text-lg px-6 py-3 hover:bg-slate-800 tracking-wide mt-16' />
         </Link>
       </main>
     </div>

@@ -33,17 +33,18 @@ declare type User = {
 };
 
 declare type EventDetails = {
-  $id: string;
+  $id?: string;
+  userId?: string;
   title: string;
-  date: string;
-  city: string;
+  email: string;
   description: string;
-  imgURL: string;
-  organizedBy?: string;
+  bannerImage?: FormData;
+  city: string;
   location?: string;
+  date: string;
   time?: string;
   price?: number;
-  tags?: string[];
-  performers?: string[];
-  attendeesCount?: number;
+  tags?: string;
+  organizedBy?: string;
+  performers?: string;
 };

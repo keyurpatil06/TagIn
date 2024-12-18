@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -24,7 +24,8 @@ body {
   }
 
   .form-label {
-    @apply text-[14px] leading-[20px] w-full max-w-[280px] font-medium text-gray-700;
+    /* @apply text-[14px] leading-[20px] w-full max-w-[280px] font-medium text-gray-700; */
+    @apply text-[14px] leading-[20px] w-full max-w-[280px] font-medium text-gray-100;
   }
 
   .form-message {
@@ -33,6 +34,10 @@ body {
 
   .input-class {
     @apply text-lg placeholder:text-[16px] placeholder:leading-[24px] rounded-lg;
+  }
+
+  .file-upload {
+    @apply text-[12px] leading-[16px] font-normal flex cursor-pointer flex-col items-center justify-center gap-3 rounded-md border border-dashed border-slate-400 bg-slate-700 p-5;
   }
 }
 
@@ -64,6 +69,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -96,7 +102,14 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }

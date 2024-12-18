@@ -1,23 +1,42 @@
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
-import React from 'react'
+import { Button } from './ui/button';
 
-const Button = ({
+const CustomButton = ({
   text,
   onClick,
-  className
+  className,
+  isLoading,
+  type,
 }: {
   text: string;
   onClick?: () => void;
   className?: string;
+  isLoading?: boolean;
+  type?: string;
 }) => {
   return (
-    <button
+    <Button
+      type={type === 'submit' ? 'submit' : 'button'}
+      disabled={isLoading}
       onClick={onClick}
       className={cn("font-semibold px-4 py-2 text-white bg rounded-2xl", className)}
     >
-      {text}
-    </button>
+      {isLoading ? (
+        <div className="flex items-center gap-4">
+          <Image
+            src='/loader.svg'
+            alt="loader"
+            height={24}
+            width={24}
+            className="animate-spin"
+          />
+          Loading...
+        </div>
+      ) : text}
+    </Button>
   )
 }
 
-export default Button
+export default CustomButton
+

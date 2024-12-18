@@ -14,7 +14,7 @@ interface CustomInput {
   placeholder: string
 }
 
-const CustomInput = ({ control, name, label, placeholder }: CustomInput) => {
+const AuthCustomInput = ({ control, name, label, placeholder }: CustomInput) => {
   return (
     <FormField
       control={control}
@@ -41,4 +41,4 @@ const CustomInput = ({ control, name, label, placeholder }: CustomInput) => {
   )
 }
 
-export default CustomInput
+export default AuthCustomInput

@@ -1,9 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import Button from './Button';
 import { useRouter } from 'next/navigation';
 import { registerForEvent } from '@/lib/actions/user.actions';
+import CustomButton from './Button';
 
 const EventDetails = ({ event, userId }: { event: EventDetails, userId: string }) => {
   const router = useRouter();
@@ -14,7 +14,7 @@ const EventDetails = ({ event, userId }: { event: EventDetails, userId: string }
     date,
     city,
     description,
-    imgURL,
+    bannerImage,
     organizedBy,
     location,
     time,
@@ -37,7 +37,7 @@ const EventDetails = ({ event, userId }: { event: EventDetails, userId: string }
     <div className='w-fit md:flex gap-10 items-center justify-center bg-slate-800 shadow-lg rounded-2xl max-md:mb-12 p-4 md:p-8'>
       <div className='flex justify-center w-full max-md:mt-6 p-2 md:p-4 rounded-xl items-center bg-slate-700'>
         <Image
-          src={imgURL}
+          src={bannerImage}
           alt={title}
           height={500}
           width={800}
@@ -99,7 +99,7 @@ const EventDetails = ({ event, userId }: { event: EventDetails, userId: string }
           </p>
         )}
 
-        <Button
+        <CustomButton
           text='Register Now!'
           className='mt-6 py-2 bg-red-600 text-center font-semibold text-lg text-white rounded-lg hover:bg-red-700 transition duration-300'
           onClick={handleRegister}

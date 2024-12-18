@@ -1,3 +1,4 @@
+import Navbar from "@/components/Navbar";
 import { getLoggedInUser } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
 
@@ -7,8 +8,11 @@ export default async function RootLayout({ children, }: Readonly<{ children: Rea
   if (!loggedIn) redirect('/sign-in')
 
   return (
-    <main>
-      {children}
-    </main>
+    <div className='w-full bg-slate-950 flex flex-col'>
+      <Navbar />
+      <main>
+        {children}
+      </main>
+    </div>
   )
 }
