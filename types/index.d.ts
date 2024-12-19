@@ -48,3 +48,19 @@ declare type EventDetails = {
   organizedBy?: string;
   performers?: string;
 };
+
+declare type EventDetailsProps = {
+  $id: string;
+  userId?: string;
+  title: string;
+  description: string;
+  bannerImageUrl: string;
+  city: string;
+  location?: string;
+  date: string;
+  time?: string;
+  price?: number;
+  tags?: string;
+  organizedBy?: string;
+  performers?: string;
+};

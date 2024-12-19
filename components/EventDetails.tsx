@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { registerForEvent } from '@/lib/actions/user.actions';
 import CustomButton from './Button';
 
-const EventDetails = ({ event, userId }: { event: EventDetails, userId: string }) => {
+const EventDetails = ({ event, userId }: { event: EventDetailsProps, userId: string }) => {
   const router = useRouter();
 
   const {
@@ -14,14 +14,13 @@ const EventDetails = ({ event, userId }: { event: EventDetails, userId: string }
     date,
     city,
     description,
-    bannerImage,
+    bannerImageUrl,
     organizedBy,
     location,
     time,
     price,
     tags,
     performers,
-    attendeesCount,
   } = event;
 
   const handleRegister = async () => {
@@ -37,7 +36,7 @@ const EventDetails = ({ event, userId }: { event: EventDetails, userId: string }
     <div className='w-fit md:flex gap-10 items-center justify-center bg-slate-800 shadow-lg rounded-2xl max-md:mb-12 p-4 md:p-8'>
       <div className='flex justify-center w-full max-md:mt-6 p-2 md:p-4 rounded-xl items-center bg-slate-700'>
         <Image
-          src={bannerImage}
+          src={bannerImageUrl}
           alt={title}
           height={500}
           width={800}
@@ -70,7 +69,7 @@ const EventDetails = ({ event, userId }: { event: EventDetails, userId: string }
         {tags && tags.length > 0 && (
           <div className='flex flex-wrap gap-2 mt-2'>
             <span className='font-bold'>Tags:</span>
-            {tags.map((tag, index) => (
+            {tags.split(',').map((tag, index) => (
               <span
                 key={index}
                 className='bg-gray-600 text-gray-300 px-3 py-1 rounded-full text-sm'
@@ -85,18 +84,11 @@ const EventDetails = ({ event, userId }: { event: EventDetails, userId: string }
           <div className='mt-4'>
             <span className='font-bold'>Performers:</span>
             <ul className='list-disc pl-6 text-gray-300'>
-              {performers.map((performer, index) => (
+              {performers.split(',').map((performer, index) => (
                 <li key={index}>{performer}</li>
               ))}
             </ul>
           </div>
-        )}
-
-        {attendeesCount && (
-          <p className='text-gray-300'>
-            <span className='font-bold'>Attendees:</span> {attendeesCount}
-            {/* TODO: ADD REAL COUNT */}
-          </p>
         )}
 
         <CustomButton

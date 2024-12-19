@@ -3,7 +3,7 @@
 import { InputFile } from "node-appwrite/file";
 import { eventsList } from "../dummyData"
 import { createAdminClient } from "../appwrite.config";
-import { ID } from "node-appwrite";
+import { ID, ImageFormat, Query } from "node-appwrite";
 import { parseStringify } from "../utils";
 
 const {
@@ -31,7 +31,7 @@ export const createEvent = async ({ bannerImage, ...eventData }: EventDetails) =
 
     const newEvent = await database.createDocument(
         DATABASE_ID!,
-        USER_COLLECTION_ID!,
+        EVENT_COLLECTION_ID!,
         ID.unique(),
         {
             bannerImageId: file?.$id || null,
@@ -40,19 +40,53 @@ export const createEvent = async ({ bannerImage, ...eventData }: EventDetails) =
         }
     )
 
-    console.log(newEvent);
-    
-
     return parseStringify(newEvent);
 }
 
-export const getEvent = async (id: string) => {
-    const event = eventsList.find((event) => event.$id === id)
-    return event;
+export const getEvent = async (eventId: string) => {
+    const { database } = await createAdminClient();
+
+    const event = await database.getDocument(
+        DATABASE_ID!,
+        EVENT_COLLECTION_ID!,
+        eventId
+    );
+
+    return parseStringify(event)
+}
+
+export const getEventsCreatedByUser = async (userId: string) => {
+    const { database } = await createAdminClient();
+
+    const events = await database.listDocuments(
+        DATABASE_ID!,
+        EVENT_COLLECTION_ID!,
+        [Query.equal('userId', [userId]), Query.orderDesc('$createdAt')]
+    )
+
+    return parseStringify(events.documents)
+}
+
+export const getEventsUsersRegisteredFor = async (userId: string) => {
+    const { database } = await createAdminClient();
+
+    const events = await database.listDocuments(
+        DATABASE_ID!,
+        EVENT_COLLECTION_ID!,
+        [Query.search('registeredUsers', userId)]
+    );
+
+    return parseStringify(events.documents);
 }
 
 export const getEventsList = async () => {
-    const events = eventsList;
+    const { database } = await createAdminClient();
 
-    return events;
+    const events = await database.listDocuments(
+        DATABASE_ID!,
+        EVENT_COLLECTION_ID!,
+        [Query.orderDesc('$createdAt')]
+    );
+
+    return parseStringify(events.documents);
 }

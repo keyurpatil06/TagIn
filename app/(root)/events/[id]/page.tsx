@@ -14,6 +14,9 @@ const IndividualEvent = async ({ params }: Props) => {
   const event = await getEvent(id);
   const loggedIn = await getLoggedInUser();
 
+  console.log(event);
+  
+
   if (!loggedIn) redirect('/sign-in');
 
   if (!event) {
