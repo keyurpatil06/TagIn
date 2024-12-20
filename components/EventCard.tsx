@@ -2,7 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const EventCard = ({ $id, title, date, city, description, bannerImageUrl }: EventDetailsProps) => {
+const EventCard = ({
+  $id,
+  title,
+  date,
+  city,
+  description,
+  bannerImageUrl,
+  showBtn,
+}: EventDetailsProps) => {
 
   return (
     <div className="bg-slate-900 p-6 rounded-2xl shadow-lg hover:scale-105 transition-transform w-96 flex flex-col">
@@ -19,9 +27,9 @@ const EventCard = ({ $id, title, date, city, description, bannerImageUrl }: Even
       <p className="text-gray-400 my-2 line-clamp-2">{description}</p>
       <Link
         href={`/events/${$id}`}
-        className='bg-red-500 text-white font-semibold w-full p-2 rounded-xl mt-1 text-center text-lg'
+        className={`${showBtn ? 'bg-red-500':'bg-gray-500'} text-white font-semibold w-full p-2 rounded-xl mt-1 text-center text-lg`}
       >
-        Register Now!
+        {showBtn ? 'Register Now!': 'View Details'}
       </Link>
     </div>
   );

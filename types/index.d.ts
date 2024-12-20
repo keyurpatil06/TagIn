@@ -63,4 +63,6 @@ declare type EventDetailsProps = {
   tags?: string;
   organizedBy?: string;
   performers?: string;
+  showBtn?: boolean;
+  registeredUsers?: string[];
 };

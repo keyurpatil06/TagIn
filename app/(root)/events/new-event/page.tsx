@@ -40,7 +40,6 @@ const NewEvent = () => {
   // 2. Define a submit handler.
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     console.log(data)
-    console.log("HI")
     setIsLoading(true)
 
     let formData;
@@ -83,7 +82,7 @@ const NewEvent = () => {
   }
 
   return (
-    <div className='max-w-xl max-md:mx-4 mx-auto bg-slate-800 text-white p-6 rounded-lg shadow-lg'>
+    <div className='max-w-xl max-md:mx-4 mx-auto mt-28 mb-8 bg-slate-800 text-white p-6 rounded-lg shadow-lg'>
       <h1 className='text-2xl font-bold mb-6 text-white'>Create New Event</h1>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-4'>
@@ -149,19 +148,19 @@ const NewEvent = () => {
             <EventCustomInput
               control={form.control}
               name='tags'
-              label='Tags'
+              label='Tags (comma &apos;,&apos; seperated)'
               placeholder='music, EDM, rock, etc.'
             />
             <EventCustomInput
               control={form.control}
               name='organizedBy'
-              label='Oragnizers'
+              label='Oragnizers (comma &apos;,&apos; seperated if multiple)'
               placeholder='Organizer&apos;s name'
             />
             <EventCustomInput
               control={form.control}
               name='performers'
-              label='Performers'
+              label='Performers (comma &apos;,&apos; seperated if multiple)'
               placeholder='Alan Walker'
             />
           </>

@@ -9,26 +9,27 @@ const Dashboard = async () => {
   const userCreatedEvents = await getEventsCreatedByUser(userId);
   const userRegisteredEvents = await getEventsUsersRegisteredFor(userId);
 
-  // console.log(userCreatedEvents);
-
   return (
-    <div className="min-h-screen p-6 bg-gray-100 pt-24">
-      <h1 className="text-2xl font-bold text-center mb-8">User Dashboard</h1>
+    <div className="min-h-screen p-6 bg-slate-950 text-white pt-28">
+      <h1 className="text-4xl font-bold text-center mb-8">User Dashboard</h1>
 
       {/* Created Events */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Your Created Events</h2>
+      <section className="mb-12 flex flex-col items-center">
+        <h2 className="text-2xl font-semibold mb-8 bg-slate-400 w-full p-3 text-black text-center rounded-xl">
+          Your Created Events
+        </h2>
         {userCreatedEvents.length > 0 ? (
-          <ul className="space-y-4">
-            {userCreatedEvents.map(({ title, date, city, description, ...event }: any) => (
-              <li key={event.$id}>
+          <ul className="flex gap-10 flex-wrap justify-center md:max-w-7xl">
+            {userCreatedEvents.map(({ $id, title, date, city, description, bannerImageUrl }: EventDetailsProps) => (
+              <li key={$id}>
                 <EventCard
-                  $id={event.$id}
+                  $id={$id}
                   title={title}
                   description={description}
                   date={date}
                   city={city}
-                  bannerImageUrl={event.bannerImageUrl}
+                  bannerImageUrl={bannerImageUrl}
+                  showBtn={false}
                 />
               </li>
             ))}
@@ -39,19 +40,22 @@ const Dashboard = async () => {
       </section>
 
       {/* Registered Events */}
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Events You Registered For</h2>
+      <section className="mb-12 flex flex-col items-center">
+        <h2 className="text-2xl font-semibold mb-8 bg-slate-400 w-full p-3 text-black text-center rounded-xl">
+          Events You Registered For
+        </h2>
         {userRegisteredEvents.length > 0 ? (
-          <ul className="space-y-4">
-            {userRegisteredEvents.map(({ title, date, city, description, ...event }: any) => (
-              <li key={event.$id}>
+          <ul className="flex gap-10 flex-wrap justify-center md:max-w-7xl">
+            {userRegisteredEvents.map(({ $id, title, date, city, description, bannerImageUrl }: EventDetailsProps) => (
+              <li key={$id}>
                 <EventCard
-                  $id={event.$id}
+                  $id={$id}
                   title={title}
                   description={description}
                   date={date}
                   city={city}
-                  bannerImageUrl={event.bannerImageUrl}
+                  bannerImageUrl={bannerImageUrl}
+                  showBtn={false}
                 />
               </li>
             ))}

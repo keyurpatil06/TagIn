@@ -23,7 +23,7 @@ const EventCustomInput = ({ control, name, label, placeholder }: CustomInput) =>
       name={name}
       render={({ field }) => (
         <div className="form-item">
-          <FormLabel className="form-label">{label}</FormLabel>
+          <FormLabel className="form-label whitespace-nowrap">{label}</FormLabel>
           <div className="flex w-full flex-col">
             <FormControl>
               {isFileInput ? (

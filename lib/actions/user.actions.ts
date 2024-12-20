@@ -109,5 +109,24 @@ export const logoutAccount = async () => {
 }
 
 export const registerForEvent = async (userId: string, eventId: string) => {
-    return { success: true }
+    const { database } = await createAdminClient();
+
+    const event = await database.getDocument(
+        DATABASE_ID!,
+        EVENT_COLLECTION_ID!,
+        eventId
+    );
+
+    const registeredUsers = event.registeredUsers || [];
+
+    const newRegistration = await database.updateDocument(
+        DATABASE_ID!,
+        EVENT_COLLECTION_ID!,
+        eventId,
+        {
+            registeredUsers: [...registeredUsers, userId],
+        }
+    );
+
+    return parseStringify(newRegistration);
 }

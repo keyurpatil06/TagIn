@@ -4,16 +4,16 @@ export const navLinks = [
     label: 'Home'
   },
   {
-    route: '#discover',
+    route: '/#discover',
     label: 'Discover'
+  },
+  {
+    route: '/dashboard',
+    label: 'Dashboard'
   },
   {
     route: '/events',
     label: 'Events'
-  },
-  {
-    route: '#about',
-    label: 'About'
   },
 ];
 
