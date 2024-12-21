@@ -1,13 +1,50 @@
+'use client'
+
 import EventCard from '@/components/EventCard';
 import { getEventsCreatedByUser, getEventsUsersRegisteredFor } from '@/lib/actions/event.actions'
 import { getLoggedInUser } from '@/lib/actions/user.actions';
-import React from 'react'
+import Image from 'next/image';
+import React, { useEffect, useState } from 'react'
 
-const Dashboard = async () => {
-  const user = await getLoggedInUser();
-  const userId = user.$id;
-  const userCreatedEvents = await getEventsCreatedByUser(userId);
-  const userRegisteredEvents = await getEventsUsersRegisteredFor(userId);
+const Dashboard = () => {
+  const [user, setUser] = useState(null);
+  const [userCreatedEvents, setUserCreatedEvents] = useState([]);
+  const [userRegisteredEvents, setUserRegisteredEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const loggedInUser = await getLoggedInUser();
+      setUser(loggedInUser);
+
+      if (loggedInUser) {
+        const createdEvents = await getEventsCreatedByUser(loggedInUser.$id);
+        setUserCreatedEvents(createdEvents);
+
+        const registeredEvents = await getEventsUsersRegisteredFor(loggedInUser.$id);
+        setUserRegisteredEvents(registeredEvents);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (!user) {
+    return (
+      <div className="min-h-screen p-6 bg-slate-950 text-white pt-28">
+        <h1 className="text-4xl font-bold text-center mb-8">User Dashboard</h1>
+        <div className='flex size-full bg-slate-950 text-2xl text-white items-center justify-center gap-3 text-white;'>
+          <Image
+            src='/loader.svg'
+            alt='loader'
+            width={32}
+            height={32}
+            className='animate-spin text-white'
+          />
+          Loading...
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen p-6 bg-slate-950 text-white pt-28">
