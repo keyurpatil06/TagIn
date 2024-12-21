@@ -15,7 +15,7 @@ const Dashboard = async () => {
 
       {/* Created Events */}
       <section className="mb-12 flex flex-col items-center">
-        <h2 className="text-2xl font-semibold mb-8 bg-slate-400 w-full p-3 text-black text-center rounded-xl">
+        <h2 className="text-2xl font-semibold mb-8 bg-slate-800 w-full p-3 text-gray-100 text-center rounded-xl">
           Your Created Events
         </h2>
         {userCreatedEvents.length > 0 ? (
@@ -41,7 +41,7 @@ const Dashboard = async () => {
 
       {/* Registered Events */}
       <section className="mb-12 flex flex-col items-center">
-        <h2 className="text-2xl font-semibold mb-8 bg-slate-400 w-full p-3 text-black text-center rounded-xl">
+        <h2 className="text-2xl font-semibold mb-8 bg-slate-800 w-full p-3 text-gray-100 text-center rounded-xl">
           Events You Registered For
         </h2>
         {userRegisteredEvents.length > 0 ? (

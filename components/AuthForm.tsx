@@ -63,7 +63,7 @@ const AuthForm = ({ type }: { type: string }) => {
     } catch (error) {
       console.log(error)
     } finally {
-      console.log(data);
+      // console.log(data);
       setIsLoading(false)
     }
   }
@@ -109,13 +109,13 @@ const AuthForm = ({ type }: { type: string }) => {
                     control={form.control}
                     name='city'
                     label='City'
-                    placeholder='Enter your city'
+                    placeholder='Ex: San Francisco'
                   />
                   <AuthCustomInput
                     control={form.control}
                     name='state'
                     label='State'
-                    placeholder='Ex: NY'
+                    placeholder='Ex: California'
                   />
                 </div>
                 <AuthCustomInput

@@ -21,7 +21,7 @@ const Ticket = ({ event, userId }: { event: EventDetailsProps; userId: string })
           alt={title}
           width={800}
           height={500}
-          className="w-full h-48 object-cover"
+          className="w-full object-cover"
         />
         <div className="absolute top-2 right-2 bg-gray-900 bg-opacity-75 text-white px-2 py-1 rounded">
           <p className="text-xs">{city}</p>

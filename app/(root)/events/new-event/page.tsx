@@ -39,7 +39,7 @@ const NewEvent = () => {
 
   // 2. Define a submit handler.
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
-    console.log(data)
+    // console.log(data)
     setIsLoading(true)
 
     let formData;
@@ -72,7 +72,7 @@ const NewEvent = () => {
       console.log(error)
     } finally {
       setIsLoading(false)
-      console.log(data)
+      // console.log(data)
     }
   }
 

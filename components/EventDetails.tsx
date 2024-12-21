@@ -38,7 +38,7 @@ const EventDetails = ({ event, userId }: { event: EventDetailsProps, userId: str
 
   return (
     <div className='flex flex-col gap-8 max-md:mb-12 md:p-8'>
-      <div className='w-[85vw] md:flex gap-10 items-center justify-center bg-slate-800 shadow-lg rounded-2xl p-4 max-md:pb-8'>
+      <div className='md:w-[85vw] md:flex gap-10 items-center justify-center bg-slate-800 shadow-lg rounded-2xl p-4 pb-8'>
         <div className='flex justify-center w-full max-md:mt-4 p-2 md:p-4 rounded-xl items-center bg-slate-700'>
           <Image
             src={bannerImageUrl}
@@ -112,12 +112,12 @@ const EventDetails = ({ event, userId }: { event: EventDetailsProps, userId: str
         </div>
       </div>
 
-      <div className='mb-5 flex flex-col gap-6'>
-        <h1 className='text-center text-white text-2xl font-semibold'>Your Event Ticket</h1>
-        {hasRegistered && (
+      {hasRegistered && (
+        <div className='mb-5 flex flex-col gap-6'>
+          <h1 className='text-center text-white text-2xl font-semibold'>Your Event Ticket</h1>
           <Ticket event={event} userId={userId} />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   )
 }

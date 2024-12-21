@@ -1,9 +1,15 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import MagicButton from './MagicButton'
 import { SparklesCore } from './ui/Sparkles'
 
 const HeroSection = () => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push('/events');
+  }
   return (
     <div className='min-h-screen flex items-center justify-center'>
       <div className="h-[40rem] w-5/6 bg-black flex flex-col items-center justify-center overflow-hidden rounded-xl">
@@ -34,7 +40,7 @@ const HeroSection = () => {
         <p className="text-center mt-2 font-medium md:text-lg text-neutral-300 relative z-20">
           Slide in, tag up, and own your event vibe!
         </p>
-        <MagicButton title='Join the Fun!' className='mt-4' />
+        <MagicButton title='Join the Fun!' className='mt-4' onClick={handleClick} />
       </div>
     </div>
   )

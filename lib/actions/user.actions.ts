@@ -4,6 +4,7 @@ import { ID, Query } from "node-appwrite";
 import { createAdminClient, createSessionClient, } from "../appwrite.config";
 import { cookies } from "next/headers";
 import { parseStringify } from "../utils";
+import { revalidatePath } from "next/cache";
 
 const {
     PROJECT_ID,
@@ -127,6 +128,8 @@ export const registerForEvent = async (userId: string, eventId: string) => {
             registeredUsers: [...registeredUsers, userId],
         }
     );
+
+    revalidatePath(`/events/${eventId}`);
 
     return parseStringify(newRegistration);
 }

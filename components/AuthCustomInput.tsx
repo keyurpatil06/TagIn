@@ -21,7 +21,7 @@ const AuthCustomInput = ({ control, name, label, placeholder }: CustomInput) => 
       name={name}
       render={({ field }) => (
         <div className='form-item'>
-          <FormLabel className='form-label'>
+          <FormLabel className='form-label text-black'>
             {label}
           </FormLabel>
           <div className='flex w-full flex-col'>

@@ -1,14 +1,14 @@
 import EventCard from '@/components/EventCard';
 import Navbar from '@/components/Navbar';
 import { getEventsList } from '@/lib/actions/event.actions'
-import { getLoggedInUser } from '@/lib/actions/user.actions';
-import { redirect } from 'next/navigation';
+// import { getLoggedInUser } from '@/lib/actions/user.actions';
+// import { redirect } from 'next/navigation';
 
 const EventsPage = async () => {
   const events = await getEventsList();
-  const loggedIn = await getLoggedInUser();
+  // const loggedIn = await getLoggedInUser();
 
-  if (!loggedIn) redirect('/sign-in')
+  // if (!loggedIn) redirect('/sign-in')
 
   return (
     <div className='pt-16 min-h-screen'>
@@ -25,6 +25,7 @@ const EventsPage = async () => {
               city={city}
               description={description}
               bannerImageUrl={bannerImageUrl}
+              showBtn={true}
             />
           ))}
         </div>

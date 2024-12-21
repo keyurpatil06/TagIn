@@ -1,9 +1,8 @@
 'use server'
 
 import { InputFile } from "node-appwrite/file";
-import { eventsList } from "../dummyData"
 import { createAdminClient } from "../appwrite.config";
-import { ID, ImageFormat, Query } from "node-appwrite";
+import { ID, Query } from "node-appwrite";
 import { parseStringify } from "../utils";
 
 const {
@@ -36,6 +35,7 @@ export const createEvent = async ({ bannerImage, ...eventData }: EventDetails) =
         {
             bannerImageId: file?.$id || null,
             bannerImageUrl: `${ENDPOINT}/storage/buckets/${BUCKET_ID}/files/${file?.$id}/view?project=${PROJECT_ID}`,
+            user: eventData.userId,
             ...eventData,
         }
     )
@@ -62,7 +62,7 @@ export const getEventsCreatedByUser = async (userId: string) => {
         DATABASE_ID!,
         EVENT_COLLECTION_ID!,
         [Query.equal('userId', [userId]), Query.orderDesc('$createdAt')]
-    )
+    );
 
     return parseStringify(events.documents)
 }

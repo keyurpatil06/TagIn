@@ -25,8 +25,8 @@ export const discoverCards = [
     alt: 'event-audience',
   },
   {
-    title: 'Personalized Tickets',
-    description: 'Say goodbye to generic tickets. Your ticket reflects your unique vibe, making every event truly yours.',
+    title: 'Exclusive Tickets',
+    description: 'Your ticket is your gateway to a tailored event experience, making every moment unforgettable.',    
     imgURL: '/ticket.jpg',
     alt: 'ticket',
   },
